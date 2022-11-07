@@ -44,10 +44,12 @@ const logo = (
 const Sidebar: FC = () => {
     return (
         <div className="min-h-screen w-[208px] bg-white">
-            <div className="h-12 py-4 px-6 border-b border-gray-line">{logo}</div>
+            <div className="h-12 py-4 px-6 border-b border-gray-200">{logo}</div>
             <div className="py-8 px-3">
                     <div>
-                        <Link href="/" className="py-2 px-4 rounded-lg bg-background-secondary flex items-center transition-colors duration-300">
+                        <Link href="/"
+                              className="py-2 px-4 rounded-lg bg-gray-100 flex items-center transition-colors duration-200 hover:bg-blue-400 hover:text-white"
+                        >
                                 <span className="mr-2">
                                     <svg
                                         width="24"

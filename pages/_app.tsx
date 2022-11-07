@@ -15,7 +15,9 @@ function MyApp({ Component, pageProps }: AppProps) {
           <Provider store={store}>
               <div className="flex">
                   <Sidebar />
-                  <Component {...pageProps} />
+                  <div className="w-full">
+                      <Component {...pageProps} />
+                  </div>
               </div>
           </Provider>
       </>

@@ -1,5 +1,5 @@
-import { FC } from "react";
-import BackButton from "./UI/BackButton";
+import { FC } from "react"
+import BackButton from "./UI/BackButton"
 
 interface IHeader {
     title: string;
@@ -9,7 +9,7 @@ interface IHeader {
 
 const Header: FC<IHeader> = ({ title, backButton, link }) => {
     return (
-        <div className="h-12 bg-white px-5 py-3 text-lg">
+        <div className="w-full h-12 bg-white px-5 py-3 text-lg flex items-center">
             {backButton && <BackButton link={link || ""} />}
             {title}
         </div>
