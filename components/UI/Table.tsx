@@ -1,12 +1,30 @@
-import { FC } from "react";
-import st from "./customTable.module.scss";
+import PostItem from "../PostItem"
+import {useAppSelector} from "../../store/hook"
+import {FC} from "react"
 
-interface ICustomTable {
-    children: JSX.Element;
+const Table: FC = () => {
+    const posts = useAppSelector(state => state.posts.posts)
+
+    return (
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Time</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            {posts.map((post) => (
+                <PostItem
+                    key={post.id}
+                    {...post}
+                />
+            ))}
+            </tbody>
+        </table>
+    )
 }
 
-const Table: FC<ICustomTable> = ({ children }) => {
-    return <div className={st.customTable}>{children}</div>;
-};
-
-export default Table;
+export default Table

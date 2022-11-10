@@ -1,21 +1,7 @@
 import type { NextPage } from 'next'
 import Header from "../components/Header"
 import Container from "../components/Container"
-import TimeAgo from 'javascript-time-ago'
-import en from 'javascript-time-ago/locale/en'
-
-TimeAgo.addDefaultLocale(en)
-
-// Create formatter (English).
-const timeAgo = new TimeAgo('en-US')
-const milliseconds = 60 * 60 * 1000
-
-let currentDate = new Date()
-
-let time = new Date(currentDate.getTime() - 2 * milliseconds)
-let week = currentDate
-week.setDate(week.getDate() - 7)
-
+import Table from "../components/UI/Table"
 
 const Posts: NextPage = () => {
   return (
@@ -24,7 +10,7 @@ const Posts: NextPage = () => {
       <Container>
         <main>
             <div className="flex flex-wrap items-center justify-between px-6 mb-3">
-                header - {timeAgo.format(time, 'mini')} - {timeAgo.format(week)}
+                header
                 {/*<CustomSearch*/}
                 {/*    search={searchInput}*/}
                 {/*    setSearch={setSearchInput}*/}
@@ -52,21 +38,7 @@ const Posts: NextPage = () => {
             </div>
             <div className="px-6">
                 table
-                {/*<table>*/}
-                {/*    <thead>*/}
-                {/*    <tr>*/}
-                {/*        <th>ID</th>*/}
-                {/*        <th>Title</th>*/}
-                {/*        <th>Time</th>*/}
-                {/*        <th>Status</th>*/}
-                {/*    </tr>*/}
-                {/*    </thead>*/}
-                {/*    <tbody>*/}
-                {/*    {allData.posts.map((item) => (*/}
-
-                {/*    ))}*/}
-                {/*    </tbody>*/}
-                {/*</table>*/}
+                <Table />
             </div>
             <div className="flex flex-wrap items-center justify-between px-6 mt-10">
                 Pagination
