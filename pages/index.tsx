@@ -1,6 +1,21 @@
 import type { NextPage } from 'next'
 import Header from "../components/Header"
 import Container from "../components/Container"
+import TimeAgo from 'javascript-time-ago'
+import en from 'javascript-time-ago/locale/en'
+
+TimeAgo.addDefaultLocale(en)
+
+// Create formatter (English).
+const timeAgo = new TimeAgo('en-US')
+const milliseconds = 60 * 60 * 1000
+
+let currentDate = new Date()
+
+let time = new Date(currentDate.getTime() - 2 * milliseconds)
+let week = currentDate
+week.setDate(week.getDate() - 7)
+
 
 const Posts: NextPage = () => {
   return (
@@ -9,7 +24,7 @@ const Posts: NextPage = () => {
       <Container>
         <main>
             <div className="flex flex-wrap items-center justify-between px-6 mb-3">
-                header
+                header - {timeAgo.format(time, 'mini')} - {timeAgo.format(week)}
                 {/*<CustomSearch*/}
                 {/*    search={searchInput}*/}
                 {/*    setSearch={setSearchInput}*/}
@@ -48,19 +63,7 @@ const Posts: NextPage = () => {
                 {/*    </thead>*/}
                 {/*    <tbody>*/}
                 {/*    {allData.posts.map((item) => (*/}
-                {/*        <tr key={item.id}>*/}
-                {/*            <td>{item.id}</td>*/}
-                {/*            <td>{item.title}</td>*/}
-                {/*            <td>{timeAgo.format(new Date(Date.parse(item.date)))}</td>*/}
-                {/*            <td>*/}
-                {/*                <CustomStatus*/}
-                {/*                    value={item.status}*/}
-                {/*                    handleChange={(e) => {*/}
-                {/*                        dispatch(setPostStatus({ value: e, id: item.id }));*/}
-                {/*                    }}*/}
-                {/*                />*/}
-                {/*            </td>*/}
-                {/*        </tr>*/}
+
                 {/*    ))}*/}
                 {/*    </tbody>*/}
                 {/*</table>*/}
