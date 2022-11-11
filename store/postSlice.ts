@@ -17,7 +17,7 @@ const postSlice = createSlice({
         addPost(state, action: PayloadAction<Post>) {
             state.posts.push(action.payload)
         },
-        setStatus(state, action: PayloadAction<{ status: string; id: number }>) {
+        setStatus(state, action: PayloadAction<{ id: number; status: string }>) {
             const changedPost = state.posts.find((post) => post.id === action.payload.id)
             if (changedPost)
                 changedPost.status = action.payload.status

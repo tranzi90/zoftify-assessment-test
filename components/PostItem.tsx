@@ -8,15 +8,15 @@ const PostItem: FC<Post> = ({id, title, status, date}) => {
     const dispatch = useAppDispatch()
 
     return (
-        <tr key={item.id}>
-            <td>{item.id}</td>
-            <td>{item.title}</td>
-            <td>{timeAgo.format(new Date(Date.parse(item.date)))}</td>
+        <tr key={id}>
+            <td>{id}</td>
+            <td>{title}</td>
+            <td>{timeAgo.format(new Date(Date.parse(date)))}</td>
             <td>
                 <StatusSelect
-                    value={item.status}
+                    value={status}
                     handleChange={(e) => {
-                        dispatch(setStatus({ status: e, id: item.id }));
+                        dispatch(setStatus({ status: e, id }))
                     }}
                 />
             </td>

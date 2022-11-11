@@ -1,9 +1,10 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
-import { store } from '../store'
+import store, {persistor} from '../store'
 import { Provider } from 'react-redux'
 import Head from "next/head"
 import Sidebar from "../components/Sidebar"
+import {PersistGate} from "redux-persist/integration/react"
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -13,12 +14,14 @@ function MyApp({ Component, pageProps }: AppProps) {
               <link rel="icon" type="image/svg" href="/icon.svg" />
           </Head>
           <Provider store={store}>
-              <div className="flex">
-                  <Sidebar />
-                  <div className="w-full">
-                      <Component {...pageProps} />
+              <PersistGate persistor={persistor} loading={null}>
+                  <div className="flex">
+                      <Sidebar />
+                      <div className="w-full">
+                          <Component {...pageProps} />
+                      </div>
                   </div>
-              </div>
+              </PersistGate>
           </Provider>
       </>
   )
