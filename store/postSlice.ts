@@ -3,11 +3,13 @@ import {stubData} from "./stubData"
 import {Post} from "../types/Post"
 
 type PostsState = {
-    posts: Post[]
+    posts: Post[],
+    searchInput: string
 }
 
 const initialState: PostsState = {
-    posts: stubData
+    posts: stubData,
+    searchInput: ''
 }
 
 const postSlice = createSlice({
@@ -21,10 +23,13 @@ const postSlice = createSlice({
             const changedPost = state.posts.find((post) => post.id === action.payload.id)
             if (changedPost)
                 changedPost.status = action.payload.status
-        }
+        },
+        setSearchInput(state, action: PayloadAction<string>) {
+            state.searchInput = action.payload
+        },
     }
 })
 
-export const {addPost, setStatus} = postSlice.actions
+export const {addPost, setStatus, setSearchInput} = postSlice.actions
 
 export default postSlice.reducer

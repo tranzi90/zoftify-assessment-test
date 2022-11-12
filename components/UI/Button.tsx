@@ -1,23 +1,20 @@
-import React, { FC } from "react";
-import st from "./customButton.module.scss";
+import React, { FC } from "react"
+import Link from "next/link"
 
-interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-    title: string;
-    width: number;
-    handleClick?: () => void;
-}
+// interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+//     title: string;
+//     width: number;
+//     handleClick?: () => void;
+// }
 
-const Button: FC<IButton> = ({ type, title, width, handleClick }) => {
+const Button: FC = () => {
     return (
         <button
-            type={type}
-            className={st.customButton}
-            style={{ width: `${width}px` }}
-            onClick={handleClick}
+            className="w-[163px] text-white bg-primary-blue py-[10px] px-3 rounded-lg cursor-pointer"
         >
-            {title}
-        </button>
-    );
-};
 
-export default Button;
+        </button>
+    )
+}
+
+export default Button

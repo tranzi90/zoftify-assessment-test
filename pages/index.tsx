@@ -2,6 +2,11 @@ import type { NextPage } from 'next'
 import Header from "../components/Header"
 import Container from "../components/Container"
 import Table from "../components/UI/Table"
+import SearchBar from "../components/UI/SearchBar"
+import Button from "../components/UI/Button"
+import Link from "next/link";
+import React from "react";
+import Filter from "../components/UI/Filter";
 
 const Posts: NextPage = () => {
   return (
@@ -10,35 +15,27 @@ const Posts: NextPage = () => {
       <Container>
         <main>
             <div className="flex flex-wrap items-center justify-between px-6 mb-3">
-                header
-                {/*<CustomSearch*/}
-                {/*    search={searchInput}*/}
-                {/*    setSearch={setSearchInput}*/}
-                {/*    handleChange={() => handleChange("search", searchInput)}*/}
-                {/*/>*/}
-                {/*<CustomButton*/}
-                {/*    width={163}*/}
-                {/*    title="Create Post"*/}
-                {/*    handleClick={() => {*/}
-                {/*        router.push(LINKS.CREATEPOST);*/}
-                {/*    }}*/}
-                {/*/>*/}
+                <SearchBar />
+                <Link href="/create-post"
+                      className="w-[163px] text-white text-center bg-primary-blue py-[10px] px-3 rounded-lg cursor-pointer"
+                >
+                    Create Post
+                </Link>
             </div>
             <div className="flex flex-wrap items-center px-6">
-                filters
                 {/*{switchers.map((item) => (*/}
-                {/*    <CustomSwitcher*/}
-                {/*        key={item.id}*/}
-                {/*        title={item.title}*/}
-                {/*        count={item.count}*/}
-                {/*        isActive={status === item.id}*/}
-                {/*        handleChange={() => handleChange("status", item.id)}*/}
-                {/*    />*/}
+                    <Filter
+                        // key={item.id}
+                        title='all'
+                        count={0}
+                        isActive={true}
+                        // handleChange={() => handleChange("status", item.id)}
+                    />
                 {/*))}*/}
             </div>
             <div className="px-6">
                 table
-                <Table />
+                {/*<Table />*/}
             </div>
             <div className="flex flex-wrap items-center justify-between px-6 mt-10">
                 Pagination

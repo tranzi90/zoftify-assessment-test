@@ -1,24 +1,24 @@
-import { Input } from "antd";
-import { FC } from "react";
+import { Input } from "antd"
+import { FC } from "react"
+import {useAppDispatch, useAppSelector} from "../../store/hook"
+import {setSearchInput} from "../../store/postSlice"
 
-const { Search } = Input;
+const { Search } = Input
 
-interface ISearchBar {
-    search: string;
-    handleChange: () => void;
-    setSearch: (e: string) => void;
+const SearchBar: FC = () => {
+    const searchInput = useAppSelector((state) => state.posts.searchInput)
+
+    const dispatch = useAppDispatch()
+
+    return (
+        <div className="searchBar">
+            <Search
+                value={searchInput}
+                onChange={(e) => dispatch(setSearchInput(e.target.value))}
+                placeholder="Search"
+                allowClear
+            />
+        </div>
+    )
 }
-
-const SearchBar: FC<ISearchBar> = ({ search, setSearch, handleChange }) => (
-    <div className="customSearch">
-        <Search
-            placeholder="Search"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            allowClear
-            onSearch={handleChange}
-        />
-    </div>
-);
-
-export default SearchBar;
+export default SearchBar

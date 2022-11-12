@@ -1,21 +1,20 @@
-import { FC } from "react";
-import st from "./customSwitcher.module.scss";
+import { FC } from "react"
 
 interface IFilter {
     title: string;
     count: number;
     isActive?: boolean;
-    handleChange: () => void;
+    // handleChange: () => void;
 }
 
-const Filter: FC<IFilter> = ({ title, count, isActive, handleChange }) => {
+const Filter: FC<IFilter> = ({ title, count, isActive, }) => {
     return (
         <div
-            className={`${st.customSwitcher} ${isActive && st.customSwitcher__active}`}
-            onClick={handleChange}
+            className={`filter ${isActive && "filter__active"}`}
+            // onClick={handleChange}
         >
-            <span className={st.customSwitcher__title}>{title}</span>
-            <span className={st.customSwitcher__count}>{count}</span>
+            <span>{title}</span>
+            <span className="filter__count">{count}</span>
         </div>
     );
 };

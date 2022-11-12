@@ -1,0 +1,59 @@
+@import 'antd/dist/antd.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply bg-gray-200;
+}
+
+.searchBar {
+  .ant-input-search {
+    .ant-input-affix-wrapper,
+    .ant-btn,
+    input {
+      @apply bg-background-secondary;
+    }
+
+    input::placeholder {
+      @apply text-color-secondary;
+    }
+
+    .ant-input-group-addon,
+    .ant-input-affix-wrapper,
+    button {
+      @apply h-9;
+    }
+
+    .ant-input-affix-wrapper {
+      @apply rounded-l-lg border-0 w-96 #{!important};
+    }
+
+    .ant-input-group-addon {
+      @apply bg-transparent;
+      .ant-input-search-button {
+        @apply border-0 rounded-r-lg #{!important};
+
+        svg {
+          @apply w-[15px] h-[15px] stroke-2 fill-color-secondary;
+        }
+      }
+    }
+  }
+}
+
+.filter {
+  @apply w-fit min-w-[144px] flex items-center justify-between mr-2 text-text-primary py-[10px] px-3 rounded-lg cursor-pointer;
+
+  &__count {
+    @apply text-white py-1 px-2 rounded-full bg-icon-tertiary;
+  }
+
+  &__active {
+    @apply text-white bg-primary-blue;
+
+    .customSwitcher__count {
+      @apply bg-primary-blue-light;
+    }
+  }
+}
