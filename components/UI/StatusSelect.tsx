@@ -1,19 +1,19 @@
-import { Select } from "antd";
-import { FC } from "react";
-const { Option } = Select;
+import { Select } from "antd"
+import { FC } from "react"
+
+const { Option } = Select
 
 interface IStatusSelect {
-    isError: boolean;
-    handleChange: (e: string) => void;
+    value: string
+    changeHandler: (e: string) => void
 }
 
-const StatusSelect: FC<IStatusSelect> = ({ isError, handleChange }) => {
+const StatusSelect: FC<IStatusSelect> = ({ value, changeHandler }) => {
     return (
-        <div className={`customFormStatusSelect ${isError && "customFormStatusSelect__isError"}`}>
+        <div className="statusSelect">
             <Select
-                placeholder="Status"
-                defaultValue={"Status"}
-                onChange={(e) => handleChange(e)}
+                defaultValue={value}
+                onChange={(e) => changeHandler(e)}
                 suffixIcon={
                     <svg
                         width="14"
@@ -33,11 +33,11 @@ const StatusSelect: FC<IStatusSelect> = ({ isError, handleChange }) => {
                     </svg>
                 }
             >
-                <Option value="draft">Draft</Option>
-                <Option value="published">Published</Option>
+                <Option value="Draft">Draft</Option>
+                <Option value="Published">Published</Option>
             </Select>
         </div>
-    );
-};
+    )
+}
 
 export default StatusSelect

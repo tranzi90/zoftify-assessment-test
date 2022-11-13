@@ -4,12 +4,14 @@ import {Post} from "../types/Post"
 
 type PostsState = {
     posts: Post[],
-    searchInput: string
+    searchInput: string,
+    selectedFilter: string
 }
 
 const initialState: PostsState = {
     posts: stubData,
-    searchInput: ''
+    searchInput: '',
+    selectedFilter: "All statuses"
 }
 
 const postSlice = createSlice({
@@ -27,9 +29,12 @@ const postSlice = createSlice({
         setSearchInput(state, action: PayloadAction<string>) {
             state.searchInput = action.payload
         },
+        setSelectedFilter(state, action: PayloadAction<string>) {
+            state.selectedFilter = action.payload
+        },
     }
 })
 
-export const {addPost, setStatus, setSearchInput} = postSlice.actions
+export const {addPost, setStatus, setSearchInput, setSelectedFilter} = postSlice.actions
 
 export default postSlice.reducer

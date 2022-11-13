@@ -3,7 +3,14 @@ import {useAppSelector} from "../../store/hook"
 import {FC} from "react"
 
 const Table: FC = () => {
-    const posts = useAppSelector(state => state.posts.posts)
+    const searchInput = useAppSelector((state) => state.posts.searchInput)
+    const selectedFilter = useAppSelector(state => state.posts.selectedFilter)
+
+    const posts = useAppSelector(
+        state => state.posts.posts
+            .filter((post) => searchInput ? post.title.includes(searchInput) : true)
+            .filter((post) => selectedFilter === "All statuses" ? true : post.status === selectedFilter)
+    )
 
     return (
         <table>
