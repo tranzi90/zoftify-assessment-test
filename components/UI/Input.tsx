@@ -1,22 +1,20 @@
 import { FC } from "react"
 
 interface IInput {
-    isError: boolean;
     placeholder: string;
     value: string;
-    setValue: (e: string) => void;
+    changeHandler: (e: string) => void;
 }
 
-const Input: FC<IInput> = ({ isError, placeholder, value, setValue }) => {
+const Input: FC<IInput> = ({ placeholder, value, changeHandler }) => {
     return (
         <input
-            className={`${st.customInput} ${isError && st.customInput__isError}`}
             placeholder={placeholder}
             value={value}
-            onChange={(e) => setValue(e.target.value)}
+            onChange={(e) => changeHandler(e.target.value)}
             required={true}
         />
-    );
-};
+    )
+}
 
 export default Input

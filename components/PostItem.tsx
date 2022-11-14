@@ -12,7 +12,7 @@ const PostItem: FC<Post> = ({id, title, status, date}) => {
         <tr key={id}>
             <td>{id}</td>
             <td>{title}</td>
-            <td>{Date.parse(date) ? DateTime.fromISO(date).toRelative() : date}</td>
+            <td>{Date.parse(date) ? DateTime.fromSQL(date).toRelative() : date}</td>
             <td>
                 <StatusSelect
                     value={status}

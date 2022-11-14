@@ -6,7 +6,7 @@ const Table: FC = () => {
     const searchInput = useAppSelector((state) => state.posts.searchInput)
     const selectedFilter = useAppSelector(state => state.posts.selectedFilter)
 
-    const posts = useAppSelector(
+    const visiblePosts = useAppSelector(
         state => state.posts.posts
             .filter((post) => searchInput ? post.title.includes(searchInput) : true)
             .filter((post) => selectedFilter === "All statuses" ? true : post.status === selectedFilter)
@@ -23,7 +23,7 @@ const Table: FC = () => {
             </tr>
             </thead>
             <tbody>
-            {posts.map((post) => (
+            {visiblePosts.map((post) => (
                 <PostItem
                     key={post.id}
                     {...post}

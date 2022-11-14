@@ -97,3 +97,49 @@ table {
     }
   }
 }
+
+.formStatusSelect {
+  @apply mb-2;
+
+  .ant-select {
+    @apply w-[356px];
+
+    .ant-select-selector {
+      @apply h-[38px] border border-background-secondary bg-background-secondary rounded-lg;
+
+      span[title="Status"] {
+        @apply text-color-secondary;
+      }
+    }
+  }
+
+  &__isError {
+    .ant-select {
+      .ant-select-selector {
+        @apply border-red-600;
+      }
+    }
+  }
+}
+
+input {
+  @apply w-[356px] h-[38px] mb-2 bg-background-secondary rounded-lg px-3 border border-background-secondary;
+
+  &:focus {
+    @apply outline-none shadow-md;
+  }
+}
+
+.datePicker {
+  @apply mb-[42px];
+
+  .ant-picker {
+    @apply w-[356px] h-[38px] border border-background-secondary bg-background-secondary rounded-lg;
+  }
+
+  &__isError {
+    .ant-picker {
+      @apply border-red-600;
+    }
+  }
+}

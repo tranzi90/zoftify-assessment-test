@@ -31,15 +31,27 @@ const PostForm: FC = () => {
             <Input
                 placeholder="Title"
                 value={newPost.title}
-                setValue={(e) => handleChange("title", e)}
-                isError={isError.title}
+                changeHandler={(e) => setNewPost(
+                    (prev) => ({ ...prev, title: e })
+                )}
             />
             <StatusSelect
-                isError={isError.status}
-                handleChange={(e) => handleChange("status", e)}
+                formInput={true}
+                changeHandler={(e) => setNewPost(
+                    (prev) => ({ ...prev, status: e })
+                )}
             />
-            <DatePicker />
-            <Button type="submit" title="Submit" width={163} />
+            <div className="datePicker">
+                <DatePicker
+                    showTime
+                    placeholder="Time"
+                    onChange={(e, date) => {
+
+                            setNewPost((prev) => ({...prev, date}))
+                    }}
+                />
+            </div>
+            <Button type="submit" title="Submit" />
         </form>
     )
 }

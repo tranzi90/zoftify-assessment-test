@@ -4,15 +4,17 @@ import { FC } from "react"
 const { Option } = Select
 
 interface IStatusSelect {
-    value: string
+    value?: string
     changeHandler: (e: string) => void
+    formInput?: boolean
 }
 
-const StatusSelect: FC<IStatusSelect> = ({ value, changeHandler }) => {
+const StatusSelect: FC<IStatusSelect> = ({ value, changeHandler, formInput }) => {
     return (
-        <div className="statusSelect">
+        <div className={`statusSelect ${formInput && "formStatusSelect"}`}>
             <Select
                 defaultValue={value}
+                placeholder="Status"
                 onChange={(e) => changeHandler(e)}
                 suffixIcon={
                     <svg

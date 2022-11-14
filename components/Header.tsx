@@ -13,7 +13,7 @@ const Header: FC<IHeader> = ({ title, backButton, link }) => {
             {backButton && <BackButton link={link || ""} />}
             {title}
         </div>
-    );
-};
+    )
+}
 
 export default Header

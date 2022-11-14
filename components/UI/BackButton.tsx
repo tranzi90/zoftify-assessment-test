@@ -9,7 +9,10 @@ const BackButton: FC<IBackButton> = ({ link }) => {
     const router = useRouter()
 
     return (
-        <div onClick={() => router.push(link)} >
+        <div
+            onClick={() => router.push(link)}
+            className="w-7 h-7 border border-gray-line rounded-4 flex items-center justify-center cursor-pointer mr-[18px] hover:bg-background-secondary"
+        >
             <svg
                 width="14"
                 height="12"
