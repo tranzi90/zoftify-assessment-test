@@ -130,16 +130,6 @@ input {
   }
 }
 
-.datePicker {
-  @apply mb-[42px];
-
-  .ant-picker {
-    @apply w-[356px] h-[38px] border border-background-secondary bg-background-secondary rounded-lg;
-  }
-
-  &__isError {
-    .ant-picker {
-      @apply border-red-600;
-    }
-  }
+.ant-picker {
+  @apply w-[356px] h-[38px] mb-[42px] border border-background-secondary bg-background-secondary rounded-lg;
 }

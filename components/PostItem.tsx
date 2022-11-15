@@ -12,11 +12,11 @@ const PostItem: FC<Post> = ({id, title, status, date}) => {
         <tr key={id}>
             <td>{id}</td>
             <td>{title}</td>
-            <td>{Date.parse(date) ? DateTime.fromSQL(date).toRelative() : date}</td>
+            <td>{Date.parse(date) ? DateTime.fromSQL(date).setLocale('en-GB').toRelative() : date}</td>
             <td>
                 <StatusSelect
                     value={status}
-                    changeHandler={(e) => {
+                    onChange={(e) => {
                         dispatch(setStatus({ status: e, id }))
                     }}
                 />
