@@ -3,8 +3,12 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  @apply leading-4;
+}
+
 body {
-    @apply bg-gray-200 leading-4;
+    @apply bg-gray-200;
 }
 
 .searchBar {
@@ -58,36 +62,6 @@ body {
   }
 }
 
-table {
-  @apply w-full my-7;
-
-  thead {
-    th {
-      @apply text-[13px] font-medium text-color-secondary py-[12.5] px-6;
-    }
-  }
-
-  tbody {
-    td {
-      @apply text-text-primary py-8 px-6;
-    }
-  }
-
-  th,
-  td {
-    @apply text-left whitespace-nowrap;
-
-    &:first-child {
-      @apply w-[65px] text-center;
-    }
-
-    &:nth-child(2) {
-      width: calc(100% - 200px);
-      @apply whitespace-normal;
-    }
-  }
-}
-
 .statusSelect {
   .ant-select {
     @apply w-[108px];
@@ -99,37 +73,31 @@ table {
 }
 
 .formStatusSelect {
-  @apply mb-2;
-
   .ant-select {
     @apply w-[356px];
 
     .ant-select-selector {
-      @apply h-[38px] border border-background-secondary bg-background-secondary rounded-lg;
+      @apply h-[40px] bg-background-secondary rounded-lg border border-background-secondary;
 
       span[title="Status"] {
         @apply text-color-secondary;
       }
     }
   }
-
-  &__isError {
-    .ant-select {
-      .ant-select-selector {
-        @apply border-red-600;
-      }
-    }
-  }
 }
 
-input {
-  @apply w-[356px] h-[38px] mb-2 bg-background-secondary rounded-lg px-3 border border-background-secondary;
+.ant-input {
+  @apply w-[356px] h-[40px] bg-background-secondary rounded-lg px-3 border border-background-secondary;
+}
 
-  &:focus {
-    @apply outline-none shadow-md;
-  }
+.ant-form {
+  @apply leading-4;
+}
+
+.ant-form-item {
+  @apply mb-2 leading-4;
 }
 
 .ant-picker {
-  @apply w-[356px] h-[38px] mb-[42px] border border-background-secondary bg-background-secondary rounded-lg;
+  @apply w-[356px] h-[40px] mb-[42px] block bg-background-secondary rounded-lg border-background-secondary;
 }

@@ -1,0 +1,29 @@
+.postsTable {
+  @apply w-full my-7;
+
+  thead {
+    th {
+      @apply text-[13px] font-medium text-color-secondary py-[12.5] px-6;
+    }
+  }
+
+  tbody {
+    td {
+      @apply text-text-primary py-8 px-6;
+    }
+  }
+
+  th,
+  td {
+    @apply text-left whitespace-nowrap;
+
+    &:first-child {
+      @apply w-[65px] text-center;
+    }
+
+    &:nth-child(2) {
+      width: calc(100% - 200px);
+      @apply whitespace-normal;
+    }
+  }
+}

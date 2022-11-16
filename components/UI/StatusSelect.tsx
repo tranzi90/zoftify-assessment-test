@@ -5,7 +5,6 @@ const { Option } = Select
 
 interface IStatusSelect {
     value?: string
-    // changeHandler: (e: string) => void
     onChange: (e: string) => void
     formInput?: boolean
 }

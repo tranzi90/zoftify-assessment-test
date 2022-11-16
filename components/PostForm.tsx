@@ -1,62 +1,77 @@
-import Input from "./UI/Input"
-import StatusSelect from "./UI/StatusSelect"
-import {DatePicker, Form, Select, } from "antd"
-import Button from "./UI/Button"
-import {addPost} from "../store/postSlice"
-import {FC, useState} from "react"
-import {Post} from "../types/Post"
-import {useAppDispatch, useAppSelector} from "../store/hook"
+import InputField from './UI/InputField'
+import StatusSelect from './UI/StatusSelect'
+import { DatePicker, Form } from 'antd'
+import Button from './UI/Button'
+import { addPost } from '../store/postSlice'
+import { FC, useState } from 'react'
+import { Post } from '../types/Post'
+import { useAppDispatch, useAppSelector } from '../store/hook'
+import { useRouter } from 'next/router'
 
 const PostForm: FC = () => {
-    const posts = useAppSelector(state => state.posts.posts)
+    const posts = useAppSelector((state) => state.posts.posts)
 
     const emptyPost = {
         id: posts.length + 1,
-        title: "",
-        date: "",
-        status: "",
+        title: '',
+        date: '',
+        status: '',
     }
 
     const [newPost, setNewPost] = useState<Post>(emptyPost)
 
     const dispatch = useAppDispatch()
+    const router = useRouter()
 
     const addTask = () => {
         dispatch(addPost(newPost))
         setNewPost(emptyPost)
+        router.push('/')
     }
 
     return (
-        <Form layout="vertical"
+        <Form
+            layout="vertical"
             onFinish={addTask}
+            onFinishFailed={(error) => {
+                console.log({ error })
+            }}
         >
-            <Form.Item noStyle>
-                <Input
-                        placeholder="Title"
-                        value={newPost.title}
-                        changeHandler={(e) => setNewPost(
-                            (prev) => ({ ...prev, title: e })
-                        )}
-                    />
+            <Form.Item
+                name="title"
+                rules={[
+                    {
+                        required: true,
+                        message: 'Please enter some text',
+                    },
+                ]}
+            >
+                <InputField
+                    placeholder="Title"
+                    value={newPost.title}
+                    onChange={(e) =>
+                        setNewPost((prev) => ({ ...prev, title: e }))
+                    }
+                />
             </Form.Item>
-            <Form.Item noStyle
+            <Form.Item
                 name="status"
                 rules={[
-                {
-                    required: true,
-                    message: 'Please select a status',
-                },
-            ]}
+                    {
+                        required: true,
+                        message: 'Please select a status',
+                    },
+                ]}
             >
                 <StatusSelect
-                            value=''
-                            formInput={true}
-                            onChange={(e) => setNewPost(
-                                (prev) => ({ ...prev, status: e })
-                            )}
-                        />
+                    value=""
+                    formInput={true}
+                    onChange={(e) =>
+                        setNewPost((prev) => ({ ...prev, status: e }))
+                    }
+                />
             </Form.Item>
-            <Form.Item noStyle
+            <Form.Item
                 name="date"
                 rules={[
                     {
@@ -65,43 +80,18 @@ const PostForm: FC = () => {
                     },
                 ]}
             >
-                             <DatePicker
-                                showTime
-                                placeholder="Time"
-                                onChange={(e, date) =>
-                                    setNewPost((prev) => ({...prev, date}))
-                                }
-                        />
+                <DatePicker
+                    showTime
+                    placeholder="Time"
+                    onChange={(e, date) =>
+                        setNewPost((prev) => ({ ...prev, date }))
+                    }
+                />
             </Form.Item>
             <Form.Item noStyle>
                 <Button type="submit" title="Submit" />
             </Form.Item>
         </Form>
-        // <form onSubmit={addTask}>
-        //     <Input
-        //         placeholder="Title"
-        //         value={newPost.title}
-        //         changeHandler={(e) => setNewPost(
-        //             (prev) => ({ ...prev, title: e })
-        //         )}
-        //     />
-        //     <StatusSelect
-        //         formInput={true}
-        //         changeHandler={(e) => setNewPost(
-        //             (prev) => ({ ...prev, status: e })
-        //         )}
-        //     />
-        //     <div className="datePicker">
-        //         <DatePicker
-        //             showTime
-        //             placeholder="Time"
-        //             onChange={(e, date) =>
-        //                 setNewPost((prev) => ({...prev, date}))
-        //             }
-        //         />
-        //     </div>
-        //     <Button type="submit" title="Submit" />
-        // </form>
     )
 }
 
