@@ -86,18 +86,16 @@ body {
   }
 }
 
-.ant-input {
-  @apply w-[356px] h-[40px] bg-background-secondary rounded-lg px-3 border border-background-secondary;
-}
+.newPostForm {
+  .ant-input {
+    @apply w-[356px] h-[40px] bg-background-secondary rounded-lg px-3 border border-background-secondary;
+  }
 
-.ant-form {
-  @apply leading-4;
-}
+  .ant-form-item {
+    @apply mb-2 leading-4;
+  }
 
-.ant-form-item {
-  @apply mb-2 leading-4;
-}
-
-.ant-picker {
-  @apply w-[356px] h-[40px] mb-[42px] block bg-background-secondary rounded-lg border-background-secondary;
+  .ant-picker {
+    @apply w-[356px] h-[40px] mb-[42px] block bg-background-secondary rounded-lg border-background-secondary;
+  }
 }

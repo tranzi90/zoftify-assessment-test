@@ -31,6 +31,7 @@ const PostForm: FC = () => {
 
     return (
         <Form
+            className="newPostForm"
             layout="vertical"
             onFinish={addTask}
             onFinishFailed={(error) => {
