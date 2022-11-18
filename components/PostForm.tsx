@@ -65,7 +65,7 @@ const PostForm: FC = () => {
                 ]}
             >
                 <StatusSelect
-                    value=""
+                    value={newPost.status}
                     formInput={true}
                     onChange={(e) =>
                         setNewPost((prev) => ({ ...prev, status: e }))

@@ -6,6 +6,8 @@ import style from '../../styles/Table.module.scss'
 const Table: FC = () => {
     const searchInput = useAppSelector((state) => state.posts.searchInput)
     const selectedFilter = useAppSelector((state) => state.posts.selectedFilter)
+    const currentPage = useAppSelector((state) => state.posts.currentPage)
+    const postsPerPage = useAppSelector((state) => state.posts.postsPerPage)
 
     const visiblePosts = useAppSelector((state) =>
         state.posts.posts
@@ -17,6 +19,7 @@ const Table: FC = () => {
                     ? true
                     : post.status === selectedFilter
             )
+            .slice((currentPage - 1) * postsPerPage, currentPage * postsPerPage)
     )
 
     return (

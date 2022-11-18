@@ -6,6 +6,7 @@ import SearchBar from '../components/UI/SearchBar'
 import Link from 'next/link'
 import React from 'react'
 import FilterSet from '../components/UI/FilterSet'
+import Paginator from '../components/UI/Paginator'
 
 const Posts: NextPage = () => {
     return (
@@ -25,6 +26,7 @@ const Posts: NextPage = () => {
                     <FilterSet />
                     <Table />
                     <div className="flex flex-wrap items-center justify-between px-6 mt-10">
+                        <Paginator />
                         {/*<CustomPagination*/}
                         {/*    current={page}*/}
                         {/*    limit={limit}*/}
