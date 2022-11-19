@@ -1,7 +1,7 @@
 import { FC } from 'react'
-import { Pagination } from 'antd'
+import { Pagination, Select } from 'antd'
 import { useAppDispatch, useAppSelector } from '../../store/hook'
-import { setCurrentPage } from '../../store/postSlice'
+import { setCurrentPage, setPostsPerPage } from '../../store/postSlice'
 
 const Paginator: FC = () => {
     const currentPage = useAppSelector((state) => state.posts.currentPage)
@@ -11,13 +11,47 @@ const Paginator: FC = () => {
     const dispatch = useAppDispatch()
 
     return (
-        <div className="customPagination">
+        <div className="paginator">
+            <div className="postsCounter">
+                <Select
+                    defaultValue={postsPerPage}
+                    onChange={(value) => dispatch(setPostsPerPage(value))}
+                    suffixIcon={
+                        <svg
+                            width="14"
+                            height="7"
+                            viewBox="0 0 14 7"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M12.28 0.966675L7.9333 5.31334C7.41997 5.82668 6.57997 5.82668 6.06664 5.31334L1.71997 0.966675"
+                                stroke="#111111"
+                                strokeWidth="1.5"
+                                strokeMiterlimit="10"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            />
+                        </svg>
+                    }
+                >
+                    <Select.Option value={5}>5</Select.Option>
+                    <Select.Option value={10}>10</Select.Option>
+                    <Select.Option value={20}>20</Select.Option>
+                </Select>
+                <div>
+                    Showing {(currentPage - 1) * postsPerPage + 1} -{' '}
+                    {currentPage * postsPerPage > totalPosts
+                        ? totalPosts
+                        : currentPage * postsPerPage}{' '}
+                    of {totalPosts}
+                </div>
+            </div>
             <Pagination
                 current={currentPage}
-                onChange={(page, pageSize) => dispatch(setCurrentPage(page))}
+                onChange={(page) => dispatch(setCurrentPage(page))}
                 pageSize={postsPerPage}
                 total={totalPosts}
-                showSizeChanger
             />
         </div>
     )

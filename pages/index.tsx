@@ -25,17 +25,17 @@ const Posts: NextPage = () => {
                     </div>
                     <FilterSet />
                     <Table />
-                    <div className="flex flex-wrap items-center justify-between px-6 mt-10">
-                        <Paginator />
-                        {/*<CustomPagination*/}
-                        {/*    current={page}*/}
-                        {/*    limit={limit}*/}
-                        {/*    total={*/}
-                        {/*        status ? allData.counts[status] : allData.counts.draft + allData.counts.published*/}
-                        {/*    }*/}
-                        {/*    handleChange={(e) => handleChange("page", `${e}`)}*/}
-                        {/*/>*/}
-                    </div>
+                    <Paginator />
+                    {/*<div className="flex flex-wrap items-center justify-between px-6 mt-10">*/}
+                    {/*    /!*<CustomPagination*!/*/}
+                    {/*    /!*    current={page}*!/*/}
+                    {/*    /!*    limit={limit}*!/*/}
+                    {/*    /!*    total={*!/*/}
+                    {/*    /!*        status ? allData.counts[status] : allData.counts.draft + allData.counts.published*!/*/}
+                    {/*    /!*    }*!/*/}
+                    {/*    /!*    handleChange={(e) => handleChange("page", `${e}`)}*!/*/}
+                    {/*/>*/}
+                    {/*</div>*/}
                 </main>
             </Container>
         </>

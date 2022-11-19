@@ -30,14 +30,7 @@ const PostForm: FC = () => {
     }
 
     return (
-        <Form
-            className="newPostForm"
-            layout="vertical"
-            onFinish={addTask}
-            onFinishFailed={(error) => {
-                console.log({ error })
-            }}
-        >
+        <Form className="newPostForm" layout="vertical" onFinish={addTask}>
             <Form.Item
                 name="title"
                 rules={[
