@@ -12,6 +12,8 @@ body {
 }
 
 .searchBar {
+    @apply w-[432px];
+
   .ant-input-search {
     .ant-input-affix-wrapper,
     .ant-btn,
@@ -30,7 +32,7 @@ body {
     }
 
     .ant-input-affix-wrapper {
-      @apply rounded-l-lg border-0 w-96 #{!important};
+      @apply rounded-l-lg border-0 #{!important};
     }
 
     .ant-input-group-addon {

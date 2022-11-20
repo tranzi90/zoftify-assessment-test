@@ -1,5 +1,5 @@
 .postsTable {
-  @apply w-full my-7;
+  @apply w-full my-7 hidden md:block;
 
   thead {
     th {

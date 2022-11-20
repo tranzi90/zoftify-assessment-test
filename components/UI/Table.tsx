@@ -1,7 +1,8 @@
 import PostItem from '../PostItem'
 import { useAppSelector } from '../../store/hook'
-import { FC } from 'react'
+import React, { FC } from 'react'
 import style from '../../styles/Table.module.scss'
+import PostCard from '../PostCard'
 
 const Table: FC = () => {
     const searchInput = useAppSelector((state) => state.posts.searchInput)
@@ -23,21 +24,28 @@ const Table: FC = () => {
     )
 
     return (
-        <table className={style.postsTable}>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Title</th>
-                    <th>Time</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
+        <>
+            <table className={style.postsTable}>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Time</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {visiblePosts.map((post) => (
+                        <PostItem key={post.id} {...post} />
+                    ))}
+                </tbody>
+            </table>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:hidden">
                 {visiblePosts.map((post) => (
-                    <PostItem key={post.id} {...post} />
+                    <PostCard key={post.id} {...post} />
                 ))}
-            </tbody>
-        </table>
+            </div>
+        </>
     )
 }
 
