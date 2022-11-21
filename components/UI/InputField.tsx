@@ -1,10 +1,10 @@
-import { FC } from "react"
-import {Input} from "antd"
+import { FC } from 'react'
+import { Input } from 'antd'
 
 interface IInputField {
-    placeholder: string;
-    value: string;
-    onChange: (e: string) => void;
+    placeholder: string
+    value: string
+    onChange: (e: string) => void
 }
 
 const InputField: FC<IInputField> = ({ placeholder, value, onChange }) => {

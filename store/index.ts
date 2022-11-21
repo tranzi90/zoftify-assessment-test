@@ -1,16 +1,19 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
-import { persistStore, persistReducer,
+import {
+    persistStore,
+    persistReducer,
     FLUSH,
     REHYDRATE,
     PAUSE,
     PERSIST,
     PURGE,
-    REGISTER, } from 'redux-persist'
+    REGISTER,
+} from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-import postReducer from "./postSlice"
+import postReducer from './postSlice'
 
 const rootReducer = combineReducers({
-    posts: postReducer
+    posts: postReducer,
 })
 
 const persistConfig = {
@@ -25,9 +28,16 @@ const store = configureStore({
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
             serializableCheck: {
-                ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+                ignoredActions: [
+                    FLUSH,
+                    REHYDRATE,
+                    PAUSE,
+                    PERSIST,
+                    PURGE,
+                    REGISTER,
+                ],
             },
-        })
+        }),
 })
 
 export type RootState = ReturnType<typeof store.getState>

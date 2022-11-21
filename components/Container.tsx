@@ -1,7 +1,7 @@
-import { FC } from "react"
+import { FC } from 'react'
 
 interface IContainer {
-    children: JSX.Element;
+    children: JSX.Element
 }
 
 const Container: FC<IContainer> = ({ children }) => {

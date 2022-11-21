@@ -1,5 +1,5 @@
-import { Select } from "antd"
-import { FC } from "react"
+import { Select } from 'antd'
+import { FC } from 'react'
 
 const { Option } = Select
 
@@ -9,9 +9,9 @@ interface IStatusSelect {
     formInput?: boolean
 }
 
-const StatusSelect: FC<IStatusSelect> = ({ value , formInput, onChange }) => {
+const StatusSelect: FC<IStatusSelect> = ({ value, formInput, onChange }) => {
     return (
-        <div className={`statusSelect ${formInput && "formStatusSelect"}`}>
+        <div className={`statusSelect ${formInput && 'formStatusSelect'}`}>
             <Select
                 value={value}
                 defaultValue={value}

@@ -1,10 +1,10 @@
-import React, { FC } from "react"
+import React, { FC } from 'react'
 
 interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-    title: string;
+    title: string
 }
 
-const Button: FC<IButton> = ({title, type}) => {
+const Button: FC<IButton> = ({ title, type }) => {
     return (
         <button
             type={type}

@@ -1,32 +1,32 @@
-import {useAppSelector} from "../../store/hook"
-import React, {FC} from "react"
-import Filter from "./Filter"
+import { useAppSelector } from '../../store/hook'
+import React, { FC } from 'react'
+import Filter from './Filter'
 
 const FilterSet: FC = () => {
-    const posts = useAppSelector(state => state.posts.posts)
+    const posts = useAppSelector((state) => state.posts.posts)
 
-    const selectedFilter = useAppSelector(state => state.posts.selectedFilter)
+    const selectedFilter = useAppSelector((state) => state.posts.selectedFilter)
 
-    const draftPosts = useAppSelector(
-        state => state.posts.posts.filter((post) => post.status === 'Draft')
+    const draftPosts = useAppSelector((state) =>
+        state.posts.posts.filter((post) => post.status === 'Draft')
     )
 
-    const publishedPosts = useAppSelector(
-        state => state.posts.posts.filter((post) => post.status === 'Published')
+    const publishedPosts = useAppSelector((state) =>
+        state.posts.posts.filter((post) => post.status === 'Published')
     )
 
     const filters = [
         {
-            title: "All statuses",
-            count: posts.length
+            title: 'All statuses',
+            count: posts.length,
         },
         {
-            title: "Draft",
-            count: draftPosts.length
+            title: 'Draft',
+            count: draftPosts.length,
         },
         {
-            title: "Published",
-            count: publishedPosts.length
+            title: 'Published',
+            count: publishedPosts.length,
         },
     ]
 

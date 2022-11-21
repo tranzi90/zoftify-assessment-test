@@ -1,8 +1,8 @@
-import { useRouter } from "next/router"
-import { FC } from "react"
+import { useRouter } from 'next/router'
+import { FC } from 'react'
 
 interface IBackButton {
-    link: string;
+    link: string
 }
 
 const BackButton: FC<IBackButton> = ({ link }) => {

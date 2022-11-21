@@ -1,7 +1,7 @@
-import { Input } from "antd"
-import { FC } from "react"
-import {useAppDispatch, useAppSelector} from "../../store/hook"
-import {setSearchInput} from "../../store/postSlice"
+import { Input } from 'antd'
+import { FC } from 'react'
+import { useAppDispatch, useAppSelector } from '../../store/hook'
+import { setSearchInput } from '../../store/postSlice'
 
 const { Search } = Input
 
