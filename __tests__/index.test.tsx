@@ -1,16 +1,15 @@
 import { render, screen } from '@testing-library/react'
-import Posts from '../pages/index'
 import '@testing-library/jest-dom'
 import Sidebar from '../components/Sidebar'
 
-describe('Posts', () => {
-    it('renders a heading', () => {
+describe('Sidebar', () => {
+    it('renders a link', () => {
         render(<Sidebar />)
 
-        const heading = screen.getByRole('link', {
+        const link = screen.getByRole('link', {
             name: /Posts/i,
         })
 
-        expect(heading).toBeInTheDocument()
+        expect(link).toBeInTheDocument()
     })
 })
