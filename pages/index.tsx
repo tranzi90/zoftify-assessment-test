@@ -18,7 +18,7 @@ const Posts: NextPage = () => {
                         <SearchBar />
                         <Link
                             href="/create-post"
-                            className="w-[163px] text-white text-center bg-primary-blue py-[10px] px-3 rounded-lg cursor-pointer"
+                            className="w-[163px] text-white text-center bg-primary-blue py-[10px] px-3 rounded-lg mt-0.5 cursor-pointer"
                         >
                             Create Post
                         </Link>
