@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import { useAppDispatch } from '../../store/hook'
 import { setSelectedFilter } from '../../store/postSlice'
+import style from '../../styles/Filter.module.scss'
 
 interface IFilter {
     title: string
@@ -13,11 +14,11 @@ const Filter: FC<IFilter> = ({ title, count, isActive }) => {
 
     return (
         <div
-            className={`filter ${isActive && 'filter__active'}`}
+            className={`${style.filter} ${isActive && style.filter__active}`}
             onClick={() => dispatch(setSelectedFilter(title))}
         >
             <span>{title}</span>
-            <span className="filter__count">{count}</span>
+            <span className={style.filter__count}>{count}</span>
         </div>
     )
 }

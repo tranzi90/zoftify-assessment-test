@@ -48,22 +48,6 @@ body {
   }
 }
 
-.filter {
-  @apply w-fit min-w-[144px] bg-background-secondary flex items-center justify-between mr-2 text-text-primary py-[10px] px-3 rounded-lg cursor-pointer;
-
-  &__count {
-    @apply text-white py-1 px-2 rounded-full bg-icon-tertiary;
-  }
-
-  &__active {
-    @apply text-white bg-primary-blue;
-
-    .customSwitcher__count {
-      @apply bg-primary-blue-light;
-    }
-  }
-}
-
 .statusSelect {
   .ant-select {
     @apply w-[108px];
@@ -76,7 +60,7 @@ body {
 
 .formStatusSelect {
   .ant-select {
-    @apply w-[356px];
+    @apply w-full md:w-[356px];
 
     .ant-select-selector {
       @apply h-[40px] bg-background-secondary rounded-lg border border-background-secondary;
@@ -90,7 +74,7 @@ body {
 
 .newPostForm {
   .ant-input {
-    @apply w-[356px] h-[40px] bg-background-secondary rounded-lg px-3 border border-background-secondary;
+    @apply md:w-[356px] h-[40px] bg-background-secondary rounded-lg px-3 border border-background-secondary;
   }
 
   .ant-form-item {
@@ -98,7 +82,7 @@ body {
   }
 
   .ant-picker {
-    @apply w-[356px] h-[40px] mb-[42px] block bg-background-secondary rounded-lg border-background-secondary;
+    @apply md:w-[356px] h-[40px] mb-[42px] block bg-background-secondary rounded-lg border-background-secondary;
   }
 }
 

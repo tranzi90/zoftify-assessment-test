@@ -1,0 +1,15 @@
+.filter {
+  @apply w-fit min-w-[144px] bg-background-secondary flex items-center justify-between mr-2 text-text-primary py-[10px] px-3 rounded-lg cursor-pointer;
+
+  &__count {
+    @apply text-white py-1 px-2 rounded-full bg-icon-tertiary;
+  }
+
+  &__active {
+    @apply text-white bg-primary-blue;
+
+    .customSwitcher__count {
+      @apply bg-primary-blue-light;
+    }
+  }
+}
