@@ -3,25 +3,31 @@ import { useAppSelector } from '../../store/hook'
 import React, { FC } from 'react'
 import style from '../../styles/Table.module.scss'
 import PostCard from '../PostCard'
+import {
+    selectCurrentPage,
+    selectPosts,
+    selectPostsPerPage,
+    selectFilter,
+    selectSearchInput,
+} from '../../store/selectors'
 
 const Table: FC = () => {
-    const searchInput = useAppSelector((state) => state.posts.searchInput)
-    const selectedFilter = useAppSelector((state) => state.posts.selectedFilter)
-    const currentPage = useAppSelector((state) => state.posts.currentPage)
-    const postsPerPage = useAppSelector((state) => state.posts.postsPerPage)
+    const searchInput = useAppSelector(selectSearchInput)
+    const selectedFilter = useAppSelector(selectFilter)
+    const currentPage = useAppSelector(selectCurrentPage)
+    const postsPerPage = useAppSelector(selectPostsPerPage)
+    const posts = useAppSelector(selectPosts)
 
-    const visiblePosts = useAppSelector((state) =>
-        state.posts.posts
-            .filter((post) =>
-                searchInput ? post.title.includes(searchInput) : true
-            )
-            .filter((post) =>
-                selectedFilter === 'All statuses'
-                    ? true
-                    : post.status === selectedFilter
-            )
-            .slice((currentPage - 1) * postsPerPage, currentPage * postsPerPage)
-    )
+    const visiblePosts = posts
+        .filter((post) =>
+            searchInput ? post.title.includes(searchInput) : true
+        )
+        .filter((post) =>
+            selectedFilter === 'All statuses'
+                ? true
+                : post.status === selectedFilter
+        )
+        .slice((currentPage - 1) * postsPerPage, currentPage * postsPerPage)
 
     return (
         <>

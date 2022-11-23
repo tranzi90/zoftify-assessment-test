@@ -8,7 +8,7 @@
 }
 
 body {
-    @apply bg-gray-200;
+    @apply bg-gray-200 h-full;
 }
 
 .searchBar {
@@ -87,7 +87,7 @@ body {
 }
 
 .paginator {
-  @apply flex flex-wrap items-center justify-between px-6 mt-10;
+  @apply flex flex-wrap items-center justify-center md:justify-between px-6 mt-10;
 
   .ant-pagination {
     @apply flex items-center;
@@ -114,7 +114,7 @@ body {
   }
 
   .postsCounter {
-    @apply flex items-center;
+    @apply flex items-center mb-1;
 
     .ant-select {
       @apply w-[64px] mr-3;

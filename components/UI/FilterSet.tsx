@@ -1,19 +1,15 @@
 import { useAppSelector } from '../../store/hook'
 import React, { FC } from 'react'
 import Filter from './Filter'
+import { selectFilter, selectPosts } from '../../store/selectors'
 
 const FilterSet: FC = () => {
-    const posts = useAppSelector((state) => state.posts.posts)
+    const posts = useAppSelector(selectPosts)
 
-    const selectedFilter = useAppSelector((state) => state.posts.selectedFilter)
+    const selectedFilter = useAppSelector(selectFilter)
 
-    const draftPosts = useAppSelector((state) =>
-        state.posts.posts.filter((post) => post.status === 'Draft')
-    )
-
-    const publishedPosts = useAppSelector((state) =>
-        state.posts.posts.filter((post) => post.status === 'Published')
-    )
+    const draftPosts = posts.filter((post) => post.status === 'Draft')
+    const publishedPosts = posts.filter((post) => post.status === 'Published')
 
     const filters = [
         {
