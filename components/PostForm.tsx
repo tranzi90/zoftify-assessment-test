@@ -7,9 +7,10 @@ import { FC, useState } from 'react'
 import { Post } from '../types/Post'
 import { useAppDispatch, useAppSelector } from '../store/hook'
 import { useRouter } from 'next/router'
+import { selectPosts } from '../store/selectors'
 
 const PostForm: FC = () => {
-    const posts = useAppSelector((state) => state.posts.posts)
+    const posts = useAppSelector(selectPosts)
 
     const emptyPost = {
         id: posts.length + 1,

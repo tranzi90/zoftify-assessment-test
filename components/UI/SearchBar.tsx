@@ -2,11 +2,12 @@ import { Input } from 'antd'
 import { FC } from 'react'
 import { useAppDispatch, useAppSelector } from '../../store/hook'
 import { setSearchInput } from '../../store/postSlice'
+import { selectSearchInput } from '../../store/selectors'
 
 const { Search } = Input
 
 const SearchBar: FC = () => {
-    const searchInput = useAppSelector((state) => state.posts.searchInput)
+    const searchInput = useAppSelector(selectSearchInput)
 
     const dispatch = useAppDispatch()
 

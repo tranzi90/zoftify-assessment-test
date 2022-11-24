@@ -2,11 +2,16 @@ import { FC } from 'react'
 import { Pagination, Select } from 'antd'
 import { useAppDispatch, useAppSelector } from '../../store/hook'
 import { setCurrentPage, setPostsPerPage } from '../../store/postSlice'
-import { selectFilter, selectPosts } from '../../store/selectors'
+import {
+    selectCurrentPage,
+    selectFilter,
+    selectPosts,
+    selectPostsPerPage,
+} from '../../store/selectors'
 
 const Paginator: FC = () => {
-    const currentPage = useAppSelector((state) => state.posts.currentPage)
-    const postsPerPage = useAppSelector((state) => state.posts.postsPerPage)
+    const currentPage = useAppSelector(selectCurrentPage)
+    const postsPerPage = useAppSelector(selectPostsPerPage)
     const selectedFilter = useAppSelector(selectFilter)
     const totalPosts = useAppSelector(selectPosts).filter((post) =>
         selectedFilter === 'All statuses'
