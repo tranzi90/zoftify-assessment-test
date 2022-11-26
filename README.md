@@ -1,5 +1,5 @@
 # General. The app must be built with Next.js (the latest stable version) and TypeScript.
-# Pages. The app has 2 pages: Posts Page and Create Post Page.
+## Pages. The app has 2 pages: Posts Page and Create Post Page.
   a. The Posts Page displays a list of posts
   b. The Create Post Page displays a form where users can submit a new post
 # Data. The data must be stored in the local storage
