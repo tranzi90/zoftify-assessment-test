@@ -8,8 +8,8 @@
 ## State management. The app should use Redux to store and retrieve posts (you can use redux toolkit).
 ## Architecture. The app should be built properly (components, consts, etc.). Imagine, if this app would grow into something bigger, so it should be scalable and easy to maintain.
 
-## UI is provided for the desktop screens only; you can add a mobile version as well (and design that at your own preference)
-## You can integrate the Husky pre-commit hook to automate linting / type checks
-## You can add some unit tests
-## Use Tailwind for the CSS
+## UI is provided for the desktop and mobile screens
+## Husky pre-commit hook to automate linting / type checks
+## some unit tests
+## Tailwind for the CSS
 
